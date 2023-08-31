@@ -1,12 +1,16 @@
 import { StyleSheet, View } from 'react-native';
+
+
 import HomeScreen from './screens/HomeScreen';
 import EventDetailsScreen from './screens/EventDetailsScreen';
+import HomeStack from './routes/HomeStack'
 
 export default function App() {
+
+  
   return (
     <View style={styles.container}>
-      {/* <HomeScreen/> */}
-      <EventDetailsScreen/>
+      <HomeStack/>
     </View>
   );
 }
@@ -14,6 +18,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'White',
+    backgroundColor: 'white',
   },
 });

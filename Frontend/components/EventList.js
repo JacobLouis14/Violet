@@ -2,15 +2,22 @@ import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react
 import React,{useState, useEffect} from 'react';
 import axios from 'axios';
 
-export default function EventList() {
 
-  /*Event List */
+export default function EventList({navigation}) {
+
   const [imageUrl,setImageUrl] = useState();
+  
+  /*Accesing Event List */
   useEffect(() => {
     axios.get("https://api.slingacademy.com/v1/sample-data/photos")
     .then(response=>{setImageUrl(response.data.photos)})
     .catch(err =>{console.log(err)})
   }, [])
+
+  // function to navigate to eventScreen
+  const listTouchHandler = ()=>{
+    navigation.navigate('EventDetails')
+  }
 
   return (
     <View style={style.container}>
@@ -21,7 +28,7 @@ export default function EventList() {
       horizontal
       showsHorizontalScrollIndicator={false}
       renderItem={({item})=>(
-        <TouchableOpacity activeOpacity={.9}>
+        <TouchableOpacity activeOpacity={.9} onPress={()=>listTouchHandler()}>
           <View style={style.eventContainer}>
             <Image style={style.eventImage} source={{uri: item.url}}/>
               <View style={style.eventDetails}>

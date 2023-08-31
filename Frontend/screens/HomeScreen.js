@@ -6,12 +6,12 @@ import Banner from "../components/Banner"
 import EventList from "../components/EventList"
 import Categories from "../components/Categories"
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   return (
     <View >
-        <Header/>
+        <Header />
         <Banner/>
-        <EventList/>
+        <EventList navigation={navigation}/>
         <Categories/>
     </View>
   )
