@@ -1,5 +1,6 @@
 import { View, Text, StatusBar, StyleSheet, Image,TouchableOpacity } from 'react-native'
 import React from 'react'
+import {MaterialIcons} from '@expo/vector-icons';
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
       <StatusBar/>
       <View style={style.container}>
         <TouchableOpacity activeOpacity={.6}>
-          <Image style={style.locationIcon} source={require('../assets/Icons/location.png')}/>
+          <MaterialIcons style={style.locationIcon} name="location-pin" size={40} color="black" />
         </TouchableOpacity>
         <Text style={style.locationText}>Location </Text>
         <TouchableOpacity activeOpacity={.6}>

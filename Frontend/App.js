@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
+import EventDetailsScreen from './screens/EventDetailsScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <HomeScreen/>
+      {/* <HomeScreen/> */}
+      <EventDetailsScreen/>
     </View>
   );
 }
