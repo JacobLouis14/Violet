@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { ScrollView, View } from "react-native"
 
 
 import Header from "../components/Header"
@@ -8,12 +8,13 @@ import Categories from "../components/Categories"
 
 export default function HomeScreen({navigation}) {
   return (
-    <View >
+    <ScrollView showsVerticalScrollIndicator = {false}>
         <Header />
         <Banner/>
         <EventList navigation={navigation}/>
         <Categories/>
-    </View>
+        <EventList navigation={navigation}/>
+    </ScrollView>
   )
 }
 

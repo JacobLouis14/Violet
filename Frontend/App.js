@@ -1,16 +1,17 @@
 import { StyleSheet, View } from 'react-native';
 
 
-import HomeScreen from './screens/HomeScreen';
-import EventDetailsScreen from './screens/EventDetailsScreen';
-import HomeStack from './routes/HomeStack'
+import MainTab from './routes/MainTab';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
 
   
   return (
     <View style={styles.container}>
-      <HomeStack/>
+      <NavigationContainer>
+        <MainTab/>
+      </NavigationContainer>
     </View>
   );
 }

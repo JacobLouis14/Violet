@@ -11,12 +11,10 @@ export default function HomeStack(){
     const Stack = createNativeStackNavigator();
 
     return(
-        <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name='Home' component={HomeScreen} options={{headerShown: false}} />
+                <Stack.Screen name='HomeScreen' component={HomeScreen} options={{headerShown: false}} />
                 <Stack.Screen name='EventDetails' component={EventDetailsScreen} />
             </Stack.Navigator>
-        </NavigationContainer>
     )
 }
 
