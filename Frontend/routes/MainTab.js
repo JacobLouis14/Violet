@@ -1,32 +1,54 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import {AntDesign } from '@expo/vector-icons'
+import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 import HomeStack from "./HomeStack";
-
+import ProfileStack from "./ProfileStack";
 
 const Tab = createMaterialBottomTabNavigator();
 
-
-export default function MainTab(){
-    return(
-        <Tab.Navigator 
-        barStyle={{
-            backgroundColor: 'darkgreen', 
-            borderRadius: 25, 
-            overflow: 'hidden',
-            height: 50,
-            alignSelf: 'center',
-            marginBottom: 20,
-            position: 'absolute',
-            left: 100,
-            right: 100,
-            }}>
-            <Tab.Screen name="Home" component={HomeStack} options={{
-                tabBarIcon: (tabinfo)=>( 
-                    <AntDesign name="home" size={tabinfo.focused? 26 : 20} color= 'black' />
-                ),
-            }} />
-        </Tab.Navigator>
-    )
+export default function MainTab() {
+  return (
+    <Tab.Navigator
+      labeled={false}
+      barStyle={{
+        backgroundColor: "lightgrey",
+        borderRadius: 20,
+        overflow: "hidden",
+        alignSelf: "center",
+        marginBottom: 10,
+        position: "absolute",
+        left: 100,
+        right: 100,
+        paddingBottom: 2,
+      }}
+    >
+      <Tab.Screen
+        name="HomeTab"
+        component={HomeStack}
+        options={{
+          tabBarIcon: (tabinfo) => (
+            <AntDesign
+              name="home"
+              size={tabinfo.focused ? 30 : 25}
+              color={tabinfo.focused ? "#00A36C" : "black"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ProfileTab"
+        component={ProfileStack}
+        options={{
+          tabBarIcon: (profileInfo) => (
+            <FontAwesome5
+              name="user-circle"
+              size={profileInfo.focused ? 30 : 25}
+              color={profileInfo.focused ? "#00A36C" : "black"}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 }
-
