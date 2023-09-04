@@ -31,7 +31,7 @@ export default function MainTab() {
             <AntDesign
               name="home"
               size={tabinfo.focused ? 30 : 25}
-              color={tabinfo.focused ? "#00A36C" : "black"}
+              color={tabinfo.focused ? "#362e5f" : "black"}
             />
           ),
         }}
@@ -44,7 +44,7 @@ export default function MainTab() {
             <FontAwesome5
               name="user-circle"
               size={profileInfo.focused ? 30 : 25}
-              color={profileInfo.focused ? "#00A36C" : "black"}
+              color={profileInfo.focused ? "#362e5f" : "black"}
             />
           ),
         }}

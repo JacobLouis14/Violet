@@ -19,24 +19,27 @@ export default function Banner() {
 
   return (
     <View style={style.container}>
-      <Image style={style.bannerImage} source={{ uri: imageUrl }} />
+      <Image
+        style={style.bannerImage}
+        resizeMode="cover"
+        source={{ uri: imageUrl }}
+      />
     </View>
   );
 }
 
 const style = StyleSheet.create({
   container: {
-    marginLeft: 3, //22
-    marginRight: 3,
-    elevation: 20,
+    marginHorizontal: 15,
+    elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.6,
-    shadowRadius: 5,
-    borderRadius: 25,
+    shadowRadius: 20,
+    borderRadius: 30,
   },
   bannerImage: {
     height: 200,
-    borderRadius: 25,
+    borderRadius: 30,
   },
 });

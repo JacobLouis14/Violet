@@ -58,7 +58,6 @@ export default function EventList({ navigation }) {
 const style = StyleSheet.create({
   container: {
     paddingLeft: 10,
-    marginTop: 50,
   },
   heading: {
     fontSize: 20,

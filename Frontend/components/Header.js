@@ -3,7 +3,6 @@ import {
   Text,
   StatusBar,
   StyleSheet,
-  Image,
   TouchableOpacity,
 } from "react-native";
 import React from "react";
@@ -12,7 +11,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 export default function Header() {
   return (
     <View>
-      <StatusBar />
       <View style={style.container}>
         <TouchableOpacity activeOpacity={0.6}>
           <MaterialIcons
@@ -40,11 +38,11 @@ const style = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#00A36C",
-    borderBottomColor: "black",
+    backgroundColor: "white",
+    borderBottomColor: "white",
     borderBottomWidth: 1,
     borderRadius: 20,
-    shadowColor: "black",
+    shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 4,
@@ -54,15 +52,18 @@ const style = StyleSheet.create({
     width: 40,
     height: 40,
     marginLeft: 20,
+    color: "#362e5f",
   },
   locationText: {
     fontSize: 16,
     fontStyle: "italic",
     maxWidth: 180,
+    color: "#362e5f",
   },
   locationChangeText: {
     marginRight: 20,
     fontSize: 16,
     fontWeight: "bold",
+    color: "#362e5f",
   },
 });
