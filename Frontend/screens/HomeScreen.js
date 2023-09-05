@@ -1,6 +1,4 @@
-import { ScrollView, StyleSheet, View, ImageBackground } from "react-native";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { ScrollView, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
 import Header from "../components/Header";
 import EventList from "../components/EventList";
@@ -8,34 +6,30 @@ import Categories from "../components/Categories";
 import Banner from "../components/Banner";
 
 export default function HomeScreen({ navigation }) {
-  const [imageUrl, setImageUrl] = useState();
-  useEffect(() => {
-    let n = Math.floor(Math.random() * 10);
-    axios
-      .get("https://api.slingacademy.com/v1/sample-data/photos")
-      .then((response) => {
-        setImageUrl(response.data.photos[n].url);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={style.container}>
-      <View style={style.headerContainer}>
-        <ImageBackground
-          source={{ uri: imageUrl }}
-          style={{
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
-          <View style={style.overly}></View>
+      <SafeAreaView>
+        <View style={style.headerContainer}>
+          <View style={style.headerDiv}>
+            <Text style={style.headerText}>Hello Name</Text>
+          </View>
           <Header />
-        </ImageBackground>
-      </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginHorizontal: 15,
+              marginTop: 25,
+            }}
+          >
+            <Text style={style.headerText}>Featured</Text>
+            <Text style={style.headerText}>See all</Text>
+          </View>
+        </View>
+      </SafeAreaView>
+
       {/* Content Starting */}
+
       <View style={style.contentContainer}>
         <View style={style.contentBanner}>
           <Banner />
@@ -51,15 +45,27 @@ export default function HomeScreen({ navigation }) {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "white",
   },
   headerContainer: {
     backgroundColor: "#362e5f",
-    height: 350,
+    height: 300,
     overflow: "hidden",
   },
+  headerDiv: {
+    alignItems: "center",
+    marginTop: 20,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+  },
+
+  /* Content styles */
+
   contentContainer: {
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "white",
   },
   contentBanner: {
     position: "relative",
@@ -70,9 +76,5 @@ const style = StyleSheet.create({
   ImageContainer: {
     backgroundColor: "rgba(54, 46, 95, 0.2)",
     flex: 1,
-  },
-  overly: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(54, 46, 95, 0.4)",
   },
 });

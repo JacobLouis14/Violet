@@ -62,15 +62,14 @@ const style = StyleSheet.create({
     fontWeight: "600",
   },
   categoriesText: {
+    flex: 1,
     padding: 10,
     fontWeight: "800",
     fontSize: 20,
     marginRight: 15,
     borderRadius: 10,
-    backgroundColor: "grey",
-    width: 200,
-    height: 100,
+    backgroundColor: "#362e5f",
     textAlign: "center",
-    textAlignVertical: "left",
+    color: "white",
   },
 });

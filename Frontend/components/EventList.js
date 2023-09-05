@@ -4,7 +4,7 @@ import {
   FlatList,
   Image,
   StyleSheet,
-  TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -38,17 +38,14 @@ export default function EventList({ navigation }) {
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => listTouchHandler()}
-          >
-            <View style={style.eventContainer}>
+          <View style={style.eventContainer}>
+            <Pressable activeOpacity={0.9} onPress={() => listTouchHandler()}>
               <Image style={style.eventImage} source={{ uri: item.url }} />
               <View style={style.eventDetails}>
                 <Text style={style.details}>{item.title}</Text>
               </View>
-            </View>
-          </TouchableOpacity>
+            </Pressable>
+          </View>
         )}
       />
     </View>
@@ -60,19 +57,25 @@ const style = StyleSheet.create({
     paddingLeft: 10,
   },
   heading: {
-    fontSize: 20,
-    fontWeight: "500",
+    fontSize: 25,
+    fontWeight: "bold",
   },
   eventContainer: {
-    marginRight: 10,
+    marginRight: 20,
     marginBottom: 10,
-    maxWidth: 130,
+    width: 300,
     marginTop: 20,
+    elevation: 5,
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 8,
+    shadowOpacity: 0.2,
+    backgroundColor: "white",
+    padding: 5,
+    borderRadius: 10,
   },
   eventImage: {
     height: 170,
-    width: 120,
-    resizeMode: "cover",
+    flex: 1,
     borderRadius: 10,
   },
   eventDetails: {
@@ -81,7 +84,8 @@ const style = StyleSheet.create({
     marginTop: 10,
   },
   details: {
-    fontWeight: "600",
+    fontWeight: "bold",
     padding: 8,
+    fontSize: 20,
   },
 });

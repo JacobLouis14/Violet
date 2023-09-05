@@ -2,21 +2,21 @@ import { View, Image, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Banner() {
-  /*For dummy Images */
-  const [imageUrl, setImageUrl] = useState();
-  useEffect(() => {
-    let n = Math.floor(Math.random() * 10);
-    axios
-      .get("https://api.slingacademy.com/v1/sample-data/photos")
-      .then((response) => {
-        setImageUrl(response.data.photos[n].url);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+/*For dummy Images */
+const [imageUrl, setImageUrl] = useState();
+useEffect(() => {
+  let n = Math.floor(Math.random() * 10);
+  axios
+    .get("https://api.slingacademy.com/v1/sample-data/photos")
+    .then((response) => {
+      setImageUrl(response.data.photos[n].url);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}, []);
 
+export default function Banner() {
   return (
     <View style={style.container}>
       <Image
