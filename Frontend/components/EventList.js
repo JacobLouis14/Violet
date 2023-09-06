@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet,
   Pressable,
+  ImageBackground,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -40,10 +41,15 @@ export default function EventList({ navigation }) {
         renderItem={({ item }) => (
           <View style={style.eventContainer}>
             <Pressable activeOpacity={0.9} onPress={() => listTouchHandler()}>
-              <Image style={style.eventImage} source={{ uri: item.url }} />
-              <View style={style.eventDetails}>
-                <Text style={style.details}>{item.title}</Text>
-              </View>
+              <ImageBackground
+                style={style.eventImage}
+                source={{ uri: item.url }}
+              >
+                <View style={style.shadowFill}></View>
+                <View style={style.eventDetails}>
+                  <Text style={style.details}>{item.title}</Text>
+                </View>
+              </ImageBackground>
             </Pressable>
           </View>
         )}
@@ -55,6 +61,7 @@ export default function EventList({ navigation }) {
 const style = StyleSheet.create({
   container: {
     paddingLeft: 10,
+    marginTop: 25,
   },
   heading: {
     fontSize: 25,
@@ -70,22 +77,29 @@ const style = StyleSheet.create({
     shadowRadius: 8,
     shadowOpacity: 0.2,
     backgroundColor: "white",
-    padding: 5,
     borderRadius: 10,
+    overflow: "hidden",
   },
   eventImage: {
-    height: 170,
-    flex: 1,
     borderRadius: 10,
+    height: 200,
+    justifyContent: "flex-end",
   },
   eventDetails: {
-    // backgroundColor: "lightgrey",
+    backgroundColor: "white",
     borderRadius: 10,
-    marginTop: 10,
+    margin: 8,
+    height: "40%",
+    flexWrap: "wrap",
   },
   details: {
     fontWeight: "bold",
     padding: 8,
     fontSize: 20,
+  },
+  shadowFill: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "black",
+    opacity: 0.3,
   },
 });

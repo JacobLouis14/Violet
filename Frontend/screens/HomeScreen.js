@@ -34,9 +34,11 @@ export default function HomeScreen({ navigation }) {
         <View style={style.contentBanner}>
           <Banner />
         </View>
-        <EventList navigation={navigation} />
-        <Categories />
-        <EventList navigation={navigation} />
+        <View style={style.contentBody}>
+          <EventList navigation={navigation} />
+          <Categories />
+          <EventList navigation={navigation} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -49,7 +51,7 @@ const style = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: "#362e5f",
-    height: 300,
+    height: 350,
     overflow: "hidden",
   },
   headerDiv: {
@@ -68,13 +70,12 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   contentBanner: {
-    position: "relative",
-    top: -90,
+    position: "absolute",
+    top: -150,
     width: "100%",
     alignSelf: "center",
   },
-  ImageContainer: {
-    backgroundColor: "rgba(54, 46, 95, 0.2)",
-    flex: 1,
+  contentBody: {
+    marginTop: 130,
   },
 });
