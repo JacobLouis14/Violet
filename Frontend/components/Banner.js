@@ -8,7 +8,10 @@ import {
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Carousel from "react-native-reanimated-carousel";
-import { Entypo } from "@expo/vector-icons";
+import {
+  responsiveFontSize,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 export default function Banner() {
   const { width, height } = useWindowDimensions();
@@ -30,13 +33,13 @@ export default function Banner() {
     <View style={style.container}>
       <Carousel
         data={imageUrl}
-        width={width}
+        width={responsiveWidth(80)}
         height={height / 3}
         autoPlay
         mode="parallax"
-        autoPlayInterval={2500}
+        autoPlayInterval={3000}
         loop
-        style={{ borderRadius: 25 }}
+        style={{ borderRadius: 25, width: width, justifyContent: "center" }}
         renderItem={({ item }) => (
           <View style={{ flex: 1 }}>
             <ImageBackground
@@ -47,9 +50,12 @@ export default function Banner() {
               <View style={style.bannerContainer}>
                 <Text style={style.bannerHeading}>{item.description}</Text>
                 <View style={style.DateContainer}>
-                  <Entypo name="calendar" size={40} color="white">
-                    <Text style={style.bannerText}>30/2/2023</Text>
-                  </Entypo>
+                  <Text style={style.bannerText}>30</Text>
+                  <Text
+                    style={{ fontSize: 22, fontWeight: "500", color: "white" }}
+                  >
+                    Month
+                  </Text>
                 </View>
               </View>
             </ImageBackground>
@@ -62,9 +68,7 @@ export default function Banner() {
 
 const style = StyleSheet.create({
   container: {
-    marginHorizontal: 15,
     justifyContent: "center",
-    alignItems: "center",
   },
   bannerImage: {
     flex: 1,
@@ -81,26 +85,28 @@ const style = StyleSheet.create({
     flex: 1,
   },
   DateContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: "#362e5f",
     position: "absolute",
-    bottom: 5,
+    bottom: 20,
+    right: 20,
     borderRadius: 10,
     marginLeft: 20,
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "center",
     paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   bannerText: {
     fontWeight: "bold",
-    marginLeft: 15,
+    fontSize: responsiveFontSize(3),
+    color: "white",
   },
   bannerHeading: {
     marginVertical: 20,
     marginHorizontal: 10,
     padding: 10,
     flexWrap: "wrap",
-    fontSize: 18,
+    fontSize: responsiveFontSize(2),
     backgroundColor: "white",
     borderRadius: 10,
   },

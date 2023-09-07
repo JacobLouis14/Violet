@@ -2,6 +2,11 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 export default function ProfileScreen() {
   return (
@@ -13,11 +18,19 @@ export default function ProfileScreen() {
         <View style={style.menuContainer}>
           <View style={style.optionContainer}>
             <Text style={style.optionText}>Add Event</Text>
-            <MaterialIcons name="add-circle" size={45} color="#362e5f" />
+            <MaterialIcons
+              name="add-circle"
+              size={responsiveFontSize(5)}
+              color="#362e5f"
+            />
           </View>
           <View style={style.optionContainer}>
             <Text style={style.optionText}>Activity</Text>
-            <AntDesign name="rightcircle" size={40} color="#362e5f" />
+            <AntDesign
+              name="rightcircle"
+              size={responsiveFontSize(4.5)}
+              color="#362e5f"
+            />
           </View>
         </View>
       </View>
@@ -41,8 +54,8 @@ const style = StyleSheet.create({
     backgroundColor: "transparent",
     borderColor: "white",
     borderWidth: 3,
-    height: 163,
-    width: 163,
+    minHeight: 140,
+    minWidth: 140,
     position: "absolute",
     top: -80,
     borderRadius: 500,
@@ -52,12 +65,12 @@ const style = StyleSheet.create({
   },
   imageHolder: {
     backgroundColor: "lightgrey",
-    height: 150,
-    width: 150,
+    minHeight: 130,
+    minWidth: 130,
     borderRadius: 500,
   },
   menuContainer: {
-    marginTop: 100,
+    marginTop: "25%",
     paddingHorizontal: 15,
     paddingVertical: 15,
     flexDirection: "row",
@@ -73,12 +86,13 @@ const style = StyleSheet.create({
     shadowRadius: 5,
     marginLeft: 10,
     borderRadius: 10,
-    height: 120,
-    width: 180,
+    minHeight: responsiveHeight(8),
+    minWidth: responsiveWidth(25),
     alignItems: "center",
+    flexWrap: "wrap",
   },
   optionText: {
-    fontSize: 22,
+    fontSize: responsiveFontSize(2),
     fontWeight: "bold",
     marginBottom: 20,
   },

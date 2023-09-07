@@ -10,10 +10,14 @@ export default function HomeScreen({ navigation }) {
     <ScrollView showsVerticalScrollIndicator={false} style={style.container}>
       <SafeAreaView>
         <View style={style.headerContainer}>
-          <View style={style.headerDiv}>
-            <Text style={style.headerText}>Hello Name</Text>
-          </View>
           <Header />
+        </View>
+      </SafeAreaView>
+
+      {/* Content Starting */}
+
+      <View style={style.contentContainer}>
+        <View style={style.contentBanner}>
           <View
             style={{
               flexDirection: "row",
@@ -25,13 +29,6 @@ export default function HomeScreen({ navigation }) {
             <Text style={style.headerText}>Featured</Text>
             <Text style={style.headerText}>See all</Text>
           </View>
-        </View>
-      </SafeAreaView>
-
-      {/* Content Starting */}
-
-      <View style={style.contentContainer}>
-        <View style={style.contentBanner}>
           <Banner />
         </View>
         <View style={style.contentBody}>
@@ -50,18 +47,13 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   headerContainer: {
-    backgroundColor: "#362e5f",
-    height: 350,
+    backgroundColor: "white",
     overflow: "hidden",
-  },
-  headerDiv: {
-    alignItems: "center",
-    marginTop: 20,
   },
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "white",
+    color: "black",
   },
 
   /* Content styles */
@@ -70,12 +62,10 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   contentBanner: {
-    position: "absolute",
-    top: -150,
     width: "100%",
     alignSelf: "center",
   },
   contentBody: {
-    marginTop: 130,
+    marginTop: "2%",
   },
 });

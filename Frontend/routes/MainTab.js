@@ -4,6 +4,10 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import HomeStack from "./HomeStack";
 import ProfileStack from "./ProfileStack";
+import {
+  responsiveFontSize,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,9 +22,9 @@ export default function MainTab() {
         alignSelf: "center",
         marginBottom: 10,
         position: "absolute",
-        left: 100,
-        right: 100,
-        paddingBottom: 2,
+        left: "10%",
+        right: "10%",
+        paddingBottom: 10,
       }}
     >
       <Tab.Screen
@@ -30,7 +34,7 @@ export default function MainTab() {
           tabBarIcon: (tabinfo) => (
             <AntDesign
               name="home"
-              size={tabinfo.focused ? 30 : 25}
+              size={35}
               color={tabinfo.focused ? "#362e5f" : "black"}
             />
           ),
@@ -43,7 +47,7 @@ export default function MainTab() {
           tabBarIcon: (profileInfo) => (
             <FontAwesome5
               name="user-circle"
-              size={profileInfo.focused ? 30 : 25}
+              size={35}
               color={profileInfo.focused ? "#362e5f" : "black"}
             />
           ),
