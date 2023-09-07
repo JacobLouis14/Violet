@@ -1,15 +1,19 @@
 import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
 
 import MainTab from "./routes/MainTab";
-import { NavigationContainer } from "@react-navigation/native";
+import store from "./Redux/store";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <MainTab />
-      </NavigationContainer>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <MainTab />
+        </NavigationContainer>
+      </View>
+    </Provider>
   );
 }
 
