@@ -5,10 +5,12 @@ import { useSelector } from "react-redux";
 
 import HomeStack from "./HomeStack";
 import ProfileStack from "./ProfileStack";
+import SignupScreen from "../screens/SignupScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function MainTab() {
+  /*Accesing user State */
   const user = useSelector((state) => state.user.userValue);
 
   return (
@@ -26,7 +28,7 @@ export default function MainTab() {
         paddingBottom: 10,
       }}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="HomeTab"
         component={HomeStack}
         options={{
@@ -38,22 +40,20 @@ export default function MainTab() {
             />
           ),
         }}
+      /> */}
+      <Tab.Screen
+        name="ProfileTab"
+        component={user ? ProfileStack : SignupScreen}
+        options={{
+          tabBarIcon: (profileInfo) => (
+            <FontAwesome5
+              name="user-circle"
+              size={35}
+              color={profileInfo.focused ? "#362e5f" : "black"}
+            />
+          ),
+        }}
       />
-      {user && (
-        <Tab.Screen
-          name="ProfileTab"
-          component={ProfileStack}
-          options={{
-            tabBarIcon: (profileInfo) => (
-              <FontAwesome5
-                name="user-circle"
-                size={35}
-                color={profileInfo.focused ? "#362e5f" : "black"}
-              />
-            ),
-          }}
-        />
-      )}
     </Tab.Navigator>
   );
 }

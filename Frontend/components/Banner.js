@@ -39,7 +39,7 @@ export default function Banner() {
         mode="parallax"
         autoPlayInterval={3000}
         loop
-        style={{ borderRadius: 25, width: width, justifyContent: "center" }}
+        style={{ width: width, justifyContent: "center" }}
         renderItem={({ item }) => (
           <View style={{ flex: 1 }}>
             <ImageBackground
