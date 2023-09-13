@@ -172,7 +172,7 @@ const style = StyleSheet.create({
   loginContainer: {
     flex: 1,
     width: "100%",
-    marginTop: "50%",
+    marginTop: "80%",
     alignItems: "center",
     paddingVertical: "5%",
     paddingHorizontal: "15%",
@@ -194,7 +194,6 @@ const style = StyleSheet.create({
   },
   textInput: {
     backgroundColor: "white",
-    outlineStyle: "none",
     marginTop: "3%",
     paddingHorizontal: 10,
     paddingVertical: 10,

@@ -4,7 +4,7 @@ import {
   FlatList,
   StyleSheet,
   Pressable,
-  ImageBackground,
+  Image,
 } from "react-native";
 import {
   responsiveHeight,
@@ -40,23 +40,21 @@ export default function EventList({ navigation }) {
       <FlatList
         data={imageUrl}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={2}
         renderItem={({ item }) => (
-          <View style={style.eventContainer}>
-            <Pressable activeOpacity={0.9} onPress={() => listTouchHandler()}>
-              <ImageBackground
-                style={style.eventImage}
-                source={{ uri: item.url }}
-              >
-                <View style={style.shadowFill}></View>
-                <View style={style.eventDetails}>
-                  <Text style={style.details}>{item.title}</Text>
-                  <View style={style.dateContainer}>
-                    <Text style={style.dateText}>30</Text>
-                    <Text style={style.dateText}>Nov</Text>
-                  </View>
+          <View>
+            <Pressable
+              activeOpacity={0.9}
+              onPress={() => listTouchHandler()}
+              style={style.eventContainer}
+            >
+              <Image style={style.eventImage} source={{ uri: item.url }} />
+              <View style={style.eventDetails}>
+                <Text style={style.details}>{item.title}</Text>
+                <View style={style.dateContainer}>
+                  <Text style={style.dateText}>30</Text>
+                  <Text style={style.dateText}>Nov</Text>
                 </View>
-              </ImageBackground>
+              </View>
             </Pressable>
           </View>
         )}
@@ -67,64 +65,53 @@ export default function EventList({ navigation }) {
 
 const style = StyleSheet.create({
   container: {
-    // paddingLeft: 10,
-    // paddingRight: 10,
-    marginHorizontal: 10,
+    marginHorizontal: "3%",
   },
   heading: {
     fontSize: responsiveFontSize(2.5),
     fontWeight: "bold",
+    marginBottom: "5%",
   },
   eventContainer: {
-    flex: 1,
-    marginHorizontal: 5,
-    marginBottom: 10,
-    marginTop: 20,
-    elevation: 5,
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 8,
-    shadowOpacity: 0.2,
-    backgroundColor: "white",
+    flexDirection: "row",
+    marginBottom: "5%",
+    paddingHorizontal: "1%",
+    paddingVertical: "2%",
+    backgroundColor: "rgba(197, 225, 165, 0.3)",
     borderRadius: 10,
-    overflow: "hidden",
   },
   eventImage: {
-    height: responsiveHeight(20),
-    justifyContent: "flex-end",
+    height: responsiveHeight(18),
+    width: responsiveWidth(35),
+    resizeMode: "cover",
+    borderRadius: 20,
   },
   eventDetails: {
-    backgroundColor: "white",
+    flex: 1,
     borderRadius: 10,
-    marginHorizontal: 8,
-    marginBottom: 5,
-    height: responsiveHeight(8),
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 10,
+    paddingHorizontal: "2%",
+    flexDirection: "column",
+    marginLeft: "1%",
   },
   details: {
-    fontSize: responsiveFontSize(1.5),
-    // maxWidth: responsiveWidth(20),
-    marginRight: "30%",
+    fontSize: responsiveFontSize(1.8),
   },
-  shadowFill: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "black",
-    opacity: 0.3,
-  },
+
   dateContainer: {
-    backgroundColor: "#45865b",
+    backgroundColor: "#8BC34A",
     marginVertical: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    alignSelf: "flex-start",
+    position: "absolute",
+    bottom: "2%",
+    right: "5%",
   },
   dateText: {
-    fontSize: responsiveFontSize(1),
-    color: "white",
+    fontSize: responsiveFontSize(1.8),
+    color: "#757575",
+    fontWeight: "500",
   },
 });

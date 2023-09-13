@@ -18,7 +18,7 @@ export default function MainTab() {
     <Tab.Navigator
       labeled={false}
       barStyle={{
-        backgroundColor: "white",
+        backgroundColor: "#C5E1A5",
         borderRadius: 20,
         overflow: "hidden",
         alignSelf: "center",
@@ -28,19 +28,19 @@ export default function MainTab() {
         right: 60,
       }}
     >
-      {/* <Tab.Screen
+      <Tab.Screen
         name="HomeTab"
         component={HomeStack}
         options={{
           tabBarIcon: (tabinfo) => (
             <AntDesign
               name="home"
-              size="200%"
-              color={tabinfo.focused ? "#4e9666" : "black"}
+              size={25}
+              color={tabinfo.focused ? "#757575" : "white"}
             />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
         name="ProfileTab"
         component={user ? ProfileStack : SignupScreen}
@@ -48,8 +48,8 @@ export default function MainTab() {
           tabBarIcon: (profileInfo) => (
             <FontAwesome5
               name="user-circle"
-              size="200%"
-              color={profileInfo.focused ? "#4e9666" : "black"}
+              size={25}
+              color={profileInfo.focused ? "#757575" : "white"}
             />
           ),
         }}

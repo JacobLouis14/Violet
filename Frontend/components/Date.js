@@ -76,5 +76,6 @@ const style = StyleSheet.create({
   text: {
     fontSize: responsiveFontSize(1.5),
     fontWeight: "500",
+    color: "#757575",
   },
 });

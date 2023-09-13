@@ -49,7 +49,7 @@ export default function Header() {
           <TextInput
             style={style.searchBox}
             placeholder="Search"
-            placeholderTextColor="black"
+            placeholderTextColor="#757575"
             value={searchValue}
             onChangeText={setSearchValue}
           />
@@ -64,7 +64,6 @@ const style = StyleSheet.create({
     flex: 1,
     marginLeft: 15,
     marginRight: 15,
-    // backgroundColor: "grey",
   },
   topContainer: {
     marginTop: 20,
@@ -74,20 +73,21 @@ const style = StyleSheet.create({
   },
   loactionContainer: {
     flexDirection: "row",
+    marginBottom: "4%",
   },
   locationIcon: {
-    color: "black",
+    color: "white",
   },
   locationText: {
     fontSize: responsiveFontSize(2),
     fontStyle: "italic",
     maxWidth: 180,
-    color: "#45865b",
+    color: "#757575",
     fontWeight: "500",
   },
   searchBoxContainer: {
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: "row",
     backgroundColor: "white",
     borderRadius: 20,
@@ -106,7 +106,6 @@ const style = StyleSheet.create({
     fontSize: responsiveFontSize(2),
     fontWeight: "500",
     width: "100%",
-    outlineStyle: "none",
   },
   headerDiv: {
     marginRight: "2%",

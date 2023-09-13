@@ -12,10 +12,8 @@ import {
 export default function HomeScreen({ navigation }) {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={style.container}>
-      <SafeAreaView>
-        <View style={style.headerContainer}>
-          <Header />
-        </View>
+      <SafeAreaView style={style.headerContainer}>
+        <Header />
       </SafeAreaView>
 
       {/* Content Starting */}
@@ -52,6 +50,10 @@ const style = StyleSheet.create({
   },
   headerContainer: {
     overflow: "hidden",
+    backgroundColor: "#C5E1A5",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    paddingTop: "8%",
   },
   headerText: {
     fontSize: responsiveFontSize(2),
@@ -63,8 +65,8 @@ const style = StyleSheet.create({
 
   contentContainer: {},
   contentBanner: {
-    width: "100%",
-    alignSelf: "center",
+    // width: "100%",
+    // alignSelf: "center",
   },
   contentBody: {
     marginTop: "2%",

@@ -39,7 +39,6 @@ export default function Banner() {
         autoPlay
         autoPlayInterval={4000}
         loop
-        style={{ width: width }}
         renderItem={({ item }) => (
           <View style={{ flex: 1 }}>
             <ImageBackground
@@ -75,11 +74,9 @@ const style = StyleSheet.create({
   },
   bannerImage: {
     flex: 1,
-    // borderWidth: 5,
-    // borderColor: "white",
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
+    // borderRadius: 8,
     marginVertical: "8%",
-    borderRadius: 8,
     overflow: "hidden",
     elevation: 8,
     shadowOffset: { width: 0, height: 5 },
@@ -99,7 +96,7 @@ const style = StyleSheet.create({
     marginHorizontal: 10,
   },
   DateContainer: {
-    backgroundColor: "#45865b",
+    backgroundColor: "#4CAF50",
     borderRadius: 10,
     marginLeft: 20,
     marginTop: 10,
