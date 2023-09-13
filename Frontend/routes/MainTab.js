@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import HomeStack from "./HomeStack";
 import ProfileStack from "./ProfileStack";
 import SignupScreen from "../screens/SignupScreen";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -17,15 +18,14 @@ export default function MainTab() {
     <Tab.Navigator
       labeled={false}
       barStyle={{
-        backgroundColor: "lightgrey",
+        backgroundColor: "white",
         borderRadius: 20,
         overflow: "hidden",
         alignSelf: "center",
         marginBottom: 10,
         position: "absolute",
-        left: "10%",
-        right: "10%",
-        paddingBottom: 10,
+        left: 60,
+        right: 60,
       }}
     >
       {/* <Tab.Screen
@@ -35,8 +35,8 @@ export default function MainTab() {
           tabBarIcon: (tabinfo) => (
             <AntDesign
               name="home"
-              size={35}
-              color={tabinfo.focused ? "#362e5f" : "black"}
+              size="200%"
+              color={tabinfo.focused ? "#4e9666" : "black"}
             />
           ),
         }}
@@ -48,8 +48,8 @@ export default function MainTab() {
           tabBarIcon: (profileInfo) => (
             <FontAwesome5
               name="user-circle"
-              size={35}
-              color={profileInfo.focused ? "#362e5f" : "black"}
+              size="200%"
+              color={profileInfo.focused ? "#4e9666" : "black"}
             />
           ),
         }}

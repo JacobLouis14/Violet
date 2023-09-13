@@ -4,6 +4,10 @@ import Header from "../components/Header";
 import EventList from "../components/EventList";
 import Categories from "../components/Categories";
 import Banner from "../components/Banner";
+import {
+  responsiveFontSize,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -47,20 +51,17 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   headerContainer: {
-    backgroundColor: "white",
     overflow: "hidden",
   },
   headerText: {
-    fontSize: 20,
+    fontSize: responsiveFontSize(2),
     fontWeight: "bold",
     color: "black",
   },
 
   /* Content styles */
 
-  contentContainer: {
-    backgroundColor: "white",
-  },
+  contentContainer: {},
   contentBanner: {
     width: "100%",
     alignSelf: "center",

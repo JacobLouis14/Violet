@@ -90,47 +90,55 @@ export default function SignupScreen() {
         </View>
       ) : (
         //Login Container
-        <View style={style.signupContainer}>
-          <View style={style.headingContainer}>
-            <Text style={style.heading}>Login</Text>
-          </View>
-          <Formik
-            enableReinitialize
-            initialValues={{ Email: "", Password: "" }}
-            onSubmit={(value) => {
-              setLoginCredential(value);
-              console.log(value);
-            }}
-          >
-            {(props) => (
-              <View style={style.contentContainer}>
-                <Text style={style.inputInfo}>Email</Text>
-                <TextInput
-                  placeholder="Email"
-                  placeholderTextColor={"lightgrey"}
-                  style={style.textInput}
-                  onChangeText={props.handleChange("Email")}
-                  value={props.values.Email}
-                />
-                <Text style={style.inputInfo}>Password</Text>
-                <TextInput
-                  placeholder="Password"
-                  placeholderTextColor={"lightgrey"}
-                  style={style.textInput}
-                  onChangeText={props.handleChange("Password")}
-                  value={props.values.Password}
-                />
-                <View style={style.btnContainer}>
-                  <Text style={style.stateBtn} onPress={stateHandlerLogin}>
-                    Signup
-                  </Text>
-                  <Text style={style.submit} onPress={props.handleSubmit}>
-                    Login
-                  </Text>
+        <View style={style.loginWrapper}>
+          <View style={style.loginContainer}>
+            <View style={style.headingContainer}>
+              <Text style={style.heading}>Wecome Back</Text>
+            </View>
+            <Formik
+              enableReinitialize
+              initialValues={{ Email: "", Password: "" }}
+              onSubmit={(value) => {
+                setLoginCredential(value);
+                console.log(value);
+              }}
+            >
+              {(props) => (
+                <View style={style.contentContainer}>
+                  <Text style={style.inputInfo}>Email</Text>
+                  <TextInput
+                    placeholder="Email"
+                    placeholderTextColor={"lightgrey"}
+                    style={[
+                      style.textInput,
+                      { borderWidth: 1, borderColor: "#8BC34A" },
+                    ]}
+                    onChangeText={props.handleChange("Email")}
+                    value={props.values.Email}
+                  />
+                  <Text style={style.inputInfo}>Password</Text>
+                  <TextInput
+                    placeholder="Password"
+                    placeholderTextColor={"lightgrey"}
+                    style={[
+                      style.textInput,
+                      { borderWidth: 1, borderColor: "#8BC34A" },
+                    ]}
+                    onChangeText={props.handleChange("Password")}
+                    value={props.values.Password}
+                  />
+                  <View style={style.btnContainer}>
+                    <Text style={style.stateBtn} onPress={stateHandlerLogin}>
+                      Signup
+                    </Text>
+                    <Text style={style.submit} onPress={props.handleSubmit}>
+                      Login
+                    </Text>
+                  </View>
                 </View>
-              </View>
-            )}
-          </Formik>
+              )}
+            </Formik>
+          </View>
         </View>
       )}
     </View>
@@ -149,32 +157,49 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 10,
     width: responsiveWidth(80),
-    backgroundColor: "#E5F2EA",
+    backgroundColor: "#C5E1A5",
     elevation: 5,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 10,
+  },
+  loginWrapper: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "#C5E1A5",
+  },
+  loginContainer: {
+    flex: 1,
+    width: "100%",
+    marginTop: "50%",
+    alignItems: "center",
+    paddingVertical: "5%",
+    paddingHorizontal: "15%",
+    borderTopLeftRadius: 45,
+    borderTopRightRadius: 45,
+    backgroundColor: "white",
   },
   headingContainer: {
     marginBottom: 10,
     flexDirection: "row",
   },
   heading: {
-    fontSize: responsiveFontSize(5),
-    fontWeight: "bold",
+    fontSize: responsiveFontSize(3),
+    fontWeight: "700",
   },
   contentContainer: {
-    marginVertical: 20,
+    marginVertical: "10%",
     width: "100%",
   },
   textInput: {
     backgroundColor: "white",
     outlineStyle: "none",
-    marginTop: 10,
+    marginTop: "3%",
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 10,
-    marginBottom: 15,
+    marginBottom: "8%",
     fontSize: responsiveFontSize(2),
   },
   inputInfo: {
@@ -193,13 +218,13 @@ const style = StyleSheet.create({
     color: "white",
     paddingVertical: 10,
     paddingHorizontal: 15,
-    backgroundColor: "#76b78c",
+    backgroundColor: "#8BC34A",
     borderRadius: 15,
   },
   stateBtn: {
     marginTop: 10,
     fontSize: responsiveFontSize(2.6),
     fontWeight: "bold",
-    color: "#76b78c",
+    color: "#4CAF50",
   },
 });

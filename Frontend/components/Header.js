@@ -32,7 +32,6 @@ export default function Header() {
                 style={style.locationIcon}
                 name="location-pin"
                 size={responsiveFontSize(5)}
-                color="black"
               />
             </TouchableOpacity>
             <Text style={style.locationText}>Location </Text>
@@ -50,7 +49,7 @@ export default function Header() {
           <TextInput
             style={style.searchBox}
             placeholder="Search"
-            placeholderTextColor="white"
+            placeholderTextColor="black"
             value={searchValue}
             onChangeText={setSearchValue}
           />
@@ -77,20 +76,20 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   locationIcon: {
-    color: "#362e5f",
+    color: "black",
   },
   locationText: {
     fontSize: responsiveFontSize(2),
     fontStyle: "italic",
     maxWidth: 180,
-    color: "#362e5f",
+    color: "#45865b",
     fontWeight: "500",
   },
   searchBoxContainer: {
     alignItems: "center",
     marginTop: 20,
     flexDirection: "row",
-    backgroundColor: "lightgrey",
+    backgroundColor: "white",
     borderRadius: 20,
     paddingHorizontal: 5,
     marginBottom: 10,
@@ -110,7 +109,6 @@ const style = StyleSheet.create({
     outlineStyle: "none",
   },
   headerDiv: {
-    position: "relative",
-    bottom: 20,
+    marginRight: "2%",
   },
 });

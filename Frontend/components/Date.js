@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
+import { responsiveFontSize } from "react-native-responsive-dimensions";
 
 export default function Day() {
   const rawDate = new Date().getDate();
   const rawMonth = new Date().getMonth() + 1;
-  const rawDay = new Date().getDay();
   let month;
   let day;
 
@@ -49,31 +49,16 @@ export default function Day() {
       break;
   }
 
-  switch (rawDay) {
-    case 1:
-      day = "Sunday";
-      break;
-    case 2:
-      day = "Monday";
-      break;
-    case 3:
-      day = "Tuesday";
-      break;
-    case 4:
-      day = "Wenesday";
-      break;
-    case 5:
-      day = "Thursday";
-      break;
-    case 6:
-      day = "Friday";
-      break;
-    case 7:
-      day = "Saturday";
-      break;
-    default:
-      break;
-  }
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  day = days[new Date().getDay()];
 
   return (
     <View style={style.container}>
@@ -89,7 +74,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   text: {
-    fontSize: 15,
+    fontSize: responsiveFontSize(1.5),
     fontWeight: "500",
   },
 });

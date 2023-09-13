@@ -67,8 +67,9 @@ export default function EventList({ navigation }) {
 
 const style = StyleSheet.create({
   container: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    // paddingLeft: 10,
+    // paddingRight: 10,
+    marginHorizontal: 10,
   },
   heading: {
     fontSize: responsiveFontSize(2.5),
@@ -89,24 +90,23 @@ const style = StyleSheet.create({
   },
   eventImage: {
     height: responsiveHeight(20),
-    width: responsiveWidth(48),
     justifyContent: "flex-end",
   },
   eventDetails: {
     backgroundColor: "white",
     borderRadius: 10,
-    margin: 8,
+    marginHorizontal: 8,
+    marginBottom: 5,
     height: responsiveHeight(8),
     flexWrap: "wrap",
-    overflow: "hidden",
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingHorizontal: 10,
   },
   details: {
-    fontWeight: "bold",
-    padding: 8,
     fontSize: responsiveFontSize(1.5),
-    maxWidth: responsiveWidth(25),
+    // maxWidth: responsiveWidth(20),
+    marginRight: "30%",
   },
   shadowFill: {
     ...StyleSheet.absoluteFillObject,
@@ -114,8 +114,7 @@ const style = StyleSheet.create({
     opacity: 0.3,
   },
   dateContainer: {
-    backgroundColor: "#362e5f",
-    marginRight: 15,
+    backgroundColor: "#45865b",
     marginVertical: 5,
     paddingVertical: 10,
     paddingHorizontal: 15,
