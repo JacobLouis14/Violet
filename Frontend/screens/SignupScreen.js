@@ -6,6 +6,25 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import { Formik } from "formik";
+import * as yup from "yup";
+
+/* Signup validation */
+const reviewSchemaSignup = yup.object({
+  Name: yup
+    .string()
+    .required()
+    .min(3)
+    .matches(/[a-zA-Z]/, "Only contain letters"),
+  MobileNo: yup.string().required().min(10),
+  Email: yup.string().required().email(),
+  Password: yup.string().required().min(6),
+});
+
+/*Login Validation */
+const reviewSchemaLogin = yup.object({
+  Email: yup.string().required().email(),
+  Password: yup.string().required().min(6),
+});
 
 export default function SignupScreen() {
   const [signUpCredential, setSignupCredential] = useState("");
@@ -30,6 +49,7 @@ export default function SignupScreen() {
           </View>
           <Formik
             enableReinitialize
+            validationSchema={reviewSchemaSignup}
             initialValues={{
               Name: "",
               MobileNo: "",
@@ -51,6 +71,11 @@ export default function SignupScreen() {
                   onChangeText={props.handleChange("Name")}
                   value={props.values.Name}
                 />
+                <Text>
+                  {props.values.Name &&
+                    props.errors.Name &&
+                    `${props.errors.Name}❗`}
+                </Text>
                 <Text style={style.inputInfo}>Mobile No</Text>
                 <TextInput
                   placeholder="Mobile No"
@@ -60,6 +85,11 @@ export default function SignupScreen() {
                   onChangeText={props.handleChange("MobileNo")}
                   value={props.values.MobileNo}
                 />
+                <Text>
+                  {props.values.MobileNo &&
+                    props.errors.MobileNo &&
+                    `${props.errors.MobileNo}❗`}
+                </Text>
                 <Text style={style.inputInfo}>Email</Text>
                 <TextInput
                   placeholder="Email"
@@ -68,6 +98,11 @@ export default function SignupScreen() {
                   onChangeText={props.handleChange("Email")}
                   value={props.values.Email}
                 />
+                <Text>
+                  {props.values.Email &&
+                    props.errors.Email &&
+                    `${props.errors.Email}❗`}
+                </Text>
                 <Text style={style.inputInfo}>Password</Text>
                 <TextInput
                   placeholder="Password"
@@ -76,6 +111,11 @@ export default function SignupScreen() {
                   onChangeText={props.handleChange("Password")}
                   value={props.values.Password}
                 />
+                <Text>
+                  {props.values.Password &&
+                    props.errors.Password &&
+                    `${props.errors.Password}❗`}
+                </Text>
                 <View style={style.btnContainer}>
                   <Text style={style.stateBtn} onPress={stateHandlerSignup}>
                     Login
@@ -97,6 +137,7 @@ export default function SignupScreen() {
             </View>
             <Formik
               enableReinitialize
+              validationSchema={reviewSchemaLogin}
               initialValues={{ Email: "", Password: "" }}
               onSubmit={(value) => {
                 setLoginCredential(value);
@@ -116,6 +157,11 @@ export default function SignupScreen() {
                     onChangeText={props.handleChange("Email")}
                     value={props.values.Email}
                   />
+                  <Text>
+                    {props.values.Email &&
+                      props.errors.Email &&
+                      `${props.errors.Email}❗`}
+                  </Text>
                   <Text style={style.inputInfo}>Password</Text>
                   <TextInput
                     placeholder="Password"
@@ -127,6 +173,11 @@ export default function SignupScreen() {
                     onChangeText={props.handleChange("Password")}
                     value={props.values.Password}
                   />
+                  <Text>
+                    {props.values.Password &&
+                      props.errors.Password &&
+                      `${props.errors.Password}❗`}
+                  </Text>
                   <View style={style.btnContainer}>
                     <Text style={style.stateBtn} onPress={stateHandlerLogin}>
                       Signup
@@ -181,7 +232,6 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   headingContainer: {
-    marginBottom: 10,
     flexDirection: "row",
   },
   heading: {
@@ -198,10 +248,10 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 10,
-    marginBottom: "8%",
     fontSize: responsiveFontSize(2),
   },
   inputInfo: {
+    marginTop: "8%",
     fontSize: responsiveFontSize(2),
     fontWeight: "500",
   },

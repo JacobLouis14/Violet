@@ -39,11 +39,10 @@ export default function Header() {
         let currentCoords = await Location.getCurrentPositionAsync({});
         axios
           .get(
-            `https://api.geoapify.com/v1/geocode/reverse?lat=${currentCoords.coords.latitude}&lon=${currentCoords.coords.longitude}&apiKey=9fd3ec82fa0b431cb7de8f44007ae90b`
+            ` https://geocode.maps.co/reverse?lat=${currentCoords.coords.latitude}&lon=${currentCoords.coords.longitude}`
           )
           .then((response) => {
-            console.log(response.data.features[0].properties.suburb),
-              setLocation(response.data.features[0].properties.suburb);
+            setLocation(response.data.address.suburb);
           })
           .catch((err) => console.err);
       } catch (error) {
