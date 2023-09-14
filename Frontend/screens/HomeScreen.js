@@ -50,7 +50,7 @@ const style = StyleSheet.create({
   },
   headerContainer: {
     overflow: "hidden",
-    backgroundColor: "#C5E1A5",
+    backgroundColor: "#4CAF50",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     paddingTop: "8%",

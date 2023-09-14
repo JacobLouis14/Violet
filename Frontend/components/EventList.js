@@ -84,7 +84,7 @@ const style = StyleSheet.create({
     height: responsiveHeight(18),
     width: responsiveWidth(35),
     resizeMode: "cover",
-    borderRadius: 20,
+    borderRadius: 10,
   },
   eventDetails: {
     flex: 1,

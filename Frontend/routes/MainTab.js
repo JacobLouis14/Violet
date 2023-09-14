@@ -18,7 +18,7 @@ export default function MainTab() {
     <Tab.Navigator
       labeled={false}
       barStyle={{
-        backgroundColor: "#C5E1A5",
+        backgroundColor: "#4CAF50",
         borderRadius: 20,
         overflow: "hidden",
         alignSelf: "center",
@@ -36,7 +36,7 @@ export default function MainTab() {
             <AntDesign
               name="home"
               size={25}
-              color={tabinfo.focused ? "#757575" : "white"}
+              color={tabinfo.focused ? "white" : "#757575"}
             />
           ),
         }}
@@ -49,7 +49,7 @@ export default function MainTab() {
             <FontAwesome5
               name="user-circle"
               size={25}
-              color={profileInfo.focused ? "#757575" : "white"}
+              color={profileInfo.focused ? "white" : "#757575"}
             />
           ),
         }}

@@ -6,8 +6,9 @@ import {
   SafeAreaView,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 
@@ -17,10 +18,39 @@ import {
   responsiveWidth,
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
+import * as Location from "expo-location";
+import axios from "axios";
 
 export default function Header() {
   /* For search function */
   const [searchValue, setSearchValue] = useState("");
+
+  /* For Location */
+  const [location, setLocation] = useState("Location");
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert("Enable Location");
+        return;
+      }
+
+      try {
+        let currentCoords = await Location.getCurrentPositionAsync({});
+        axios
+          .get(
+            `https://api.geoapify.com/v1/geocode/reverse?lat=${currentCoords.coords.latitude}&lon=${currentCoords.coords.longitude}&apiKey=9fd3ec82fa0b431cb7de8f44007ae90b`
+          )
+          .then((response) => {
+            console.log(response.data.features[0].properties.suburb),
+              setLocation(response.data.features[0].properties.suburb);
+          })
+          .catch((err) => console.err);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   return (
     <SafeAreaView>
@@ -34,7 +64,7 @@ export default function Header() {
                 size={responsiveFontSize(5)}
               />
             </TouchableOpacity>
-            <Text style={style.locationText}>Location </Text>
+            <Text style={style.locationText}>{location}</Text>
           </View>
           <View style={style.headerDiv}>
             <Day />
@@ -82,7 +112,7 @@ const style = StyleSheet.create({
     fontSize: responsiveFontSize(2),
     fontStyle: "italic",
     maxWidth: 180,
-    color: "#757575",
+    color: "white",
     fontWeight: "500",
   },
   searchBoxContainer: {
