@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -7,8 +7,22 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import {useDispatch} from 'react-redux'
+import AsyncronousStorage from '@react-native-async-storage/async-storage'
 
-export default function ProfileScreen() {
+import {logout} from '../Redux/User/user'
+
+export default function ProfileScreen({navigation}) {
+
+  const dispatch = useDispatch()
+
+  /*Logout Handler */
+  const logoutHandler =()=>{
+    dispatch(logout());
+    AsyncronousStorage.removeItem('userToken');
+    navigation.navigate('HomeTab')
+  }
+
   return (
     <View style={style.container}>
       <View style={style.detailsContainer}>
@@ -32,6 +46,10 @@ export default function ProfileScreen() {
               color="#362e5f"
             />
           </View>
+          <Pressable style={style.optionContainer} onPress={logoutHandler}>
+            <Text style={style.optionText}>Logout</Text>
+            <MaterialIcons name="logout" size={responsiveFontSize(4.5)} color="#362e5f" />
+          </Pressable>
         </View>
       </View>
     </View>

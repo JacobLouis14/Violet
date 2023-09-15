@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const multer = require("multer");
 const dotenv = require("dotenv");
+const cors = require('cors')
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -19,6 +20,7 @@ dotenv.config();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+app.use(cors())
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(bodyParser.json());
 app.use(logger("dev"));

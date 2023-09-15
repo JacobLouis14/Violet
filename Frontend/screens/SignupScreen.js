@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import { View, Text, StyleSheet, TextInput, } from "react-native";
 import React, { useState } from "react";
 import {
   responsiveFontSize,
@@ -7,6 +7,10 @@ import {
 } from "react-native-responsive-dimensions";
 import { Formik } from "formik";
 import * as yup from "yup";
+import axios from 'axios'
+import {useDispatch} from 'react-redux'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { login } from "../Redux/User/user";
 
 /* Signup validation */
 const reviewSchemaSignup = yup.object({
@@ -15,7 +19,7 @@ const reviewSchemaSignup = yup.object({
     .required()
     .min(3)
     .matches(/[a-zA-Z]/, "Only contain letters"),
-  MobileNo: yup.string().required().min(10),
+  MobileNo: yup.number().required().min(10),
   Email: yup.string().required().email(),
   Password: yup.string().required().min(6),
 });
@@ -26,9 +30,7 @@ const reviewSchemaLogin = yup.object({
   Password: yup.string().required().min(6),
 });
 
-export default function SignupScreen() {
-  const [signUpCredential, setSignupCredential] = useState("");
-  const [loginCredential, setLoginCredential] = useState("");
+export default function SignupScreen({navigation}) {
   const [isSignup, setIsSignup] = useState(true);
 
   /* State Handler for Signup/Signin */
@@ -38,6 +40,25 @@ export default function SignupScreen() {
   const stateHandlerLogin = () => {
     setIsSignup(true);
   };
+
+  /* Signup Handler */
+  const signUpHandler = (values)=>{
+    console.log(values)
+    axios.post("http://192.168.0.106:3001/users/auth/register",values)
+    .then(response=>console.log(response.data))
+    .catch(err=>console.log(err))
+  }
+
+  /* Login Handler */
+  const dispatch = useDispatch();
+  const loginHandler= (values)=>{
+    axios.post("http://192.168.0.106:3001/users/auth/login", values)
+    .then(response=>{console.log(response),
+          dispatch(login(response.data.user)),
+          AsyncStorage.setItem('userToken',response.data.token),
+          navigation.navigate('HomeTab')})
+    .catch(err=>console.log(err))
+  }
 
   return (
     <View style={style.container}>
@@ -56,9 +77,9 @@ export default function SignupScreen() {
               Email: "",
               Password: "",
             }}
-            onSubmit={(values) => {
-              setSignupCredential(values);
-              console.log(values);
+            onSubmit={(values,{resetForm}) => {
+              signUpHandler(values)
+              resetForm({values: ''})
             }}
           >
             {(props) => (
@@ -139,9 +160,9 @@ export default function SignupScreen() {
               enableReinitialize
               validationSchema={reviewSchemaLogin}
               initialValues={{ Email: "", Password: "" }}
-              onSubmit={(value) => {
-                setLoginCredential(value);
-                console.log(value);
+              onSubmit={(value,{resetForm}) => {
+                loginHandler(value)
+                resetForm({value: ''})
               }}
             >
               {(props) => (
