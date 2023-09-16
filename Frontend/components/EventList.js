@@ -65,9 +65,10 @@ export default function EventList({ navigation }) {
 
 const style = StyleSheet.create({
   container: {
-    marginHorizontal: "3%",
+    paddingHorizontal: "3%",
   },
   heading: {
+    marginTop: "10%",
     fontSize: responsiveFontSize(2.5),
     fontWeight: "bold",
     marginBottom: "5%",
@@ -75,10 +76,15 @@ const style = StyleSheet.create({
   eventContainer: {
     flexDirection: "row",
     marginBottom: "5%",
+    // marginHorizontal: "3%",
     paddingHorizontal: "1%",
     paddingVertical: "2%",
     backgroundColor: "rgba(197, 225, 165, 0.3)",
     borderRadius: 10,
+    // elevation: 4,
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 5,
   },
   eventImage: {
     height: responsiveHeight(18),

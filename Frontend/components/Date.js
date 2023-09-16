@@ -62,9 +62,8 @@ export default function Day() {
 
   return (
     <View style={style.container}>
-      <Text style={style.text}>{day},</Text>
-      <Text style={style.text}> {rawDate}</Text>
-      <Text style={style.text}> {month}</Text>
+      <Text style={style.text}> {`${rawDate}  ${day}`}</Text>
+      {/* <Text style={style.text}> {month}</Text> */}
     </View>
   );
 }

@@ -49,7 +49,6 @@ export default function Categories() {
 
 const style = StyleSheet.create({
   container: {
-    marginTop: 15,
     paddingLeft: 10,
   },
   inline: {
@@ -63,12 +62,12 @@ const style = StyleSheet.create({
   },
   categoriesText: {
     flex: 1,
-    padding: 10,
-    fontWeight: "800",
-    fontSize: 20,
-    marginRight: 15,
+    padding: 8,
+    fontWeight: "600",
+    fontSize: 18,
+    marginRight: 10,
     borderRadius: 10,
-    backgroundColor: "#362e5f",
+    backgroundColor: "#244b1d",
     textAlign: "center",
     color: "white",
   },

@@ -20,21 +20,9 @@ export default function HomeScreen({ navigation }) {
 
       <View style={style.contentContainer}>
         <View style={style.contentBanner}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginHorizontal: 15,
-              marginTop: 25,
-            }}
-          >
-            <Text style={style.headerText}>Featured</Text>
-            <Text style={style.headerText}>See all</Text>
-          </View>
           <Banner />
         </View>
         <View style={style.contentBody}>
-          <EventList navigation={navigation} />
           <Categories />
           <EventList navigation={navigation} />
         </View>
@@ -50,7 +38,7 @@ const style = StyleSheet.create({
   },
   headerContainer: {
     overflow: "hidden",
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#244b1d",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     paddingTop: "8%",

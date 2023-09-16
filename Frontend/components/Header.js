@@ -9,7 +9,7 @@ import {
   Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Octicons } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 
 import Day from "./Date";
@@ -57,10 +57,10 @@ export default function Header() {
         <View style={style.topContainer}>
           <View style={style.loactionContainer}>
             <TouchableOpacity activeOpacity={0.6}>
-              <MaterialIcons
+              <Octicons
                 style={style.locationIcon}
-                name="location-pin"
-                size={responsiveFontSize(5)}
+                name="location"
+                size={responsiveFontSize(3)}
               />
             </TouchableOpacity>
             <Text style={style.locationText}>{location}</Text>
@@ -113,6 +113,7 @@ const style = StyleSheet.create({
     maxWidth: 180,
     color: "white",
     fontWeight: "500",
+    marginLeft: "3%",
   },
   searchBoxContainer: {
     alignItems: "center",

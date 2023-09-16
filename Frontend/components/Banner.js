@@ -35,7 +35,7 @@ export default function Banner() {
       <Carousel
         data={imageUrl}
         width={responsiveWidth(100)}
-        height={height / 3}
+        height={responsiveHeight(30)}
         autoPlay
         autoPlayInterval={4000}
         loop
@@ -64,6 +64,7 @@ export default function Banner() {
           </View>
         )}
       />
+      
     </View>
   );
 }
@@ -74,14 +75,14 @@ const style = StyleSheet.create({
   },
   bannerImage: {
     flex: 1,
-    // marginHorizontal: 20,
-    // borderRadius: 8,
+    marginHorizontal: '2%',
+    borderRadius: 5,
     marginVertical: "8%",
     overflow: "hidden",
-    elevation: 8,
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.5,
-    shadowRadius: 20,
+    // elevation: 8,
+    // shadowOffset: { width: 0, height: 5 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 20,
     justifyContent: "flex-end",
   },
   bannerContainer: {
@@ -96,7 +97,7 @@ const style = StyleSheet.create({
     marginHorizontal: 10,
   },
   DateContainer: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#244b1d",
     borderRadius: 10,
     marginLeft: 20,
     marginTop: 10,
