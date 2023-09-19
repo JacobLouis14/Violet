@@ -110,7 +110,7 @@ const style = StyleSheet.create({
   locationText: {
     fontSize: responsiveFontSize(2),
     fontStyle: "italic",
-    maxWidth: 180,
+    maxWidth: responsiveWidth(90),
     color: "white",
     fontWeight: "500",
     marginLeft: "3%",

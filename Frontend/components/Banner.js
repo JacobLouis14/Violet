@@ -32,39 +32,40 @@ export default function Banner() {
 
   return (
     <View style={style.container}>
-      <Carousel
-        data={imageUrl}
-        width={responsiveWidth(100)}
-        height={responsiveHeight(30)}
-        autoPlay
-        autoPlayInterval={4000}
-        loop
-        renderItem={({ item }) => (
-          <View style={{ flex: 1 }}>
-            <ImageBackground
-              source={{ uri: item.url }}
-              style={style.bannerImage}
-            >
-              <View style={style.bannerContainer}>
-                <Text style={style.bannerHeading}>{item.description}</Text>
-                <View style={style.DateContainer}>
-                  <Text style={style.bannerText}>30</Text>
-                  <Text
-                    style={{
-                      fontSize: responsiveFontSize(1.5),
-                      fontWeight: "500",
-                      color: "white",
-                    }}
-                  >
-                    Month
-                  </Text>
+      {imageUrl.length > 0 && (
+        <Carousel
+          data={imageUrl}
+          width={responsiveWidth(100)}
+          height={responsiveHeight(35)}
+          autoPlay
+          autoPlayInterval={4000}
+          loop
+          renderItem={({ item }) => (
+            <View style={{ flex: 1 }}>
+              <ImageBackground
+                source={{ uri: item.url }}
+                style={style.bannerImage}
+              >
+                <View style={style.bannerContainer}>
+                  <Text style={style.bannerHeading}>{item.description}</Text>
+                  <View style={style.DateContainer}>
+                    <Text style={style.bannerText}>30</Text>
+                    <Text
+                      style={{
+                        fontSize: responsiveFontSize(1.5),
+                        fontWeight: "500",
+                        color: "white",
+                      }}
+                    >
+                      Month
+                    </Text>
+                  </View>
                 </View>
-              </View>
-            </ImageBackground>
-          </View>
-        )}
-      />
-      
+              </ImageBackground>
+            </View>
+          )}
+        />
+      )}
     </View>
   );
 }
@@ -75,7 +76,7 @@ const style = StyleSheet.create({
   },
   bannerImage: {
     flex: 1,
-    marginHorizontal: '2%',
+    marginHorizontal: "2%",
     borderRadius: 5,
     marginVertical: "8%",
     overflow: "hidden",

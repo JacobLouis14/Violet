@@ -47,7 +47,9 @@ export default function EventList({ navigation }) {
               onPress={() => listTouchHandler()}
               style={style.eventContainer}
             >
-              <Image style={style.eventImage} source={{ uri: item.url }} />
+              <View style={style.imageContainer}>
+                <Image style={style.eventImage} source={{ uri: item.url }} />
+              </View>
               <View style={style.eventDetails}>
                 <Text style={style.details}>{item.title}</Text>
                 <View style={style.dateContainer}>
@@ -79,18 +81,21 @@ const style = StyleSheet.create({
     // marginHorizontal: "3%",
     paddingHorizontal: "1%",
     paddingVertical: "2%",
-    backgroundColor: "rgba(197, 225, 165, 0.3)",
+    backgroundColor: "rgba(197, 225, 165, 0.1)",
     borderRadius: 10,
-    // elevation: 4,
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 5,
+  },
+  imageContainer: {
+    elevation: 5,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    borderRadius: 10,
+    overflow: "hidden",
   },
   eventImage: {
-    height: responsiveHeight(18),
+    height: responsiveHeight(22),
     width: responsiveWidth(35),
     resizeMode: "cover",
-    borderRadius: 10,
   },
   eventDetails: {
     flex: 1,

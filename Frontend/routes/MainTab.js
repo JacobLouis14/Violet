@@ -53,6 +53,7 @@ export default function MainTab() {
           height: responsiveFontSize(7),
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
+          overflow: "hidden",
         },
       }}
     >
@@ -64,7 +65,9 @@ export default function MainTab() {
             <MaterialCommunityIcons
               name="home-circle"
               color={tabinfo.focused ? "green" : "grey"}
-              size={tabinfo.focused ? 45 : 40}
+              size={
+                tabinfo.focused ? responsiveFontSize(5) : responsiveFontSize(4)
+              }
             />
           ),
         }}
@@ -77,7 +80,11 @@ export default function MainTab() {
             <FontAwesome5
               name="user-circle"
               color={profileInfo.focused ? "green" : "#244b1d"}
-              size={profileInfo.focused ? 40 : 35}
+              size={
+                profileInfo.focused
+                  ? responsiveFontSize(5)
+                  : responsiveFontSize(4)
+              }
             />
           ),
         }}
